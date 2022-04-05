@@ -1,0 +1,17 @@
+{
+  "name": "midi-to-microbit",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.0"
+  },
+  "dependencies": {
+    "@tonaljs/tonal": "^4.6.5",
+    "@tonejs/midi": "^2.0.28"
+  }
+}
