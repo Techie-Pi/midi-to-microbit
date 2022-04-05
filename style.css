@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .input {
@@ -14,6 +16,49 @@
 }
 
 .label:hover {
+  cursor: pointer;
+}
+
+.copy-button {
+  margin-top: 30px;
+  transition: all 500ms;
+  background-color: crimson;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.copy-button:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  border-radius: 15px 10px 25px 69px;
+}
+
+.code {
+  display: block;
+  width: 100vw;
+  text-align: center;
+}
+
+.thanks-bottom {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  border: #2c3e50 solid;
+  padding: 5px;
+  border-radius: 5px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.thanks-bottom:hover {
   cursor: pointer;
 }
 

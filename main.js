@@ -3,6 +3,9 @@ import { Midi as Midi2 } from "@tonejs/midi";
 
 import "./style.css";
 
+const result_el = document.getElementById("result");
+const copy_btn_el = document.getElementById("copy-btn");
+const thanks_el = document.getElementById("thanks");
 const source_midi = document.getElementById("midi");
 
 function parse_file(file) {
@@ -25,6 +28,26 @@ function check_freq(freq, filter_level) {
         return freq > 988 || freq < 131
     }
 }
+
+function random_rage_emojis() {
+    const number_of_emojis = Math.round(Math.random() * 10 + 2);
+    const emojis = ["🥵", "😫", "😏", "😣", "🥵", "🤬", "🤐", "😰", "🤡", "🤩", "😥", "🥱", "😪", "😲", "🐆", "🐘", "🐠", "👨‍👧", "🐇", "🐕"];
+    let text = "";
+
+    for(let i = 0; i < number_of_emojis; i++) {
+        text += emojis[Math.floor(Math.random() * emojis.length)]
+    }
+
+    return text;
+}
+
+copy_btn_el.addEventListener("click", async () => {
+    await window.navigator.clipboard.writeText(result_el.textContent.replace("Resultado:", ""));
+})
+
+thanks_el.addEventListener("click", () => {
+    thanks_el.textContent = `Para que me haces cosquillas ${random_rage_emojis()}`
+})
 
 source_midi.addEventListener("change", async e => {
     let filter_level = 2;
@@ -56,6 +79,9 @@ source_midi.addEventListener("change", async e => {
         code += `music.playTone(${note[1]}, ${note[0]})\n`
     })
     console.log(code);
+
+    result_el.textContent = `Resultado:\n\n${code}`;
+    thanks_el.hidden = false;
 })
 
 /*window.MidiParser.parse(source_midi, midi => {
